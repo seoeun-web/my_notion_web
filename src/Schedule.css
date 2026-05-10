@@ -1,56 +1,70 @@
-/* 전체 리스트 */
-.list ul{
-    width: min(90%, 900px);
+/* 전체 영역 */
+.list{
+    width: 100%;
+    min-height: 100vh;
 
-    margin: 40px auto;
+    padding: 30px 0;
+
+    background-color: #f4f6fb;
+
+    box-sizing: border-box;
+}
+
+/* ul */
+.list ul{
+    width: min(90%, 850px);
+
+    margin: 0 auto 35px auto;
     padding: 25px;
 
-    border: 2px solid #444;
-    border-radius: 20px;
+    border-radius: 24px;
 
     background-color: white;
 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+
     box-sizing: border-box;
 }
 
-/* 일정 */
+/* li */
 .list li{
     list-style: none;
 
-    width: 100%;
-
-    margin: 1.5rem 0;
-    padding: 1.5rem;
-
-    border: 2px solid #d6d6d6;
-    border-radius: 18px;
-
-    background-color: #fafafa;
-
     display: flex;
     align-items: center;
-
     gap: 1rem;
 
-    box-sizing: border-box;
+    width: 100%;
 
-    transition: 0.2s;
+    margin: 1rem 0;
+    padding: 1.2rem 1.4rem;
+
+    border-radius: 18px;
+
+    background-color: #f8f9fc;
+
+    transition: 0.2s ease;
+
+    box-sizing: border-box;
 }
 
+/* hover */
 .list li:hover{
     transform: translateY(-2px);
 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 
     background-color: white;
 }
 
 /* 체크박스 */
 input[type="checkbox"]{
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 1.3rem;
+    height: 1.3rem;
 
     cursor: pointer;
+
+    accent-color: #4b7bec;
 
     flex-shrink: 0;
 }
@@ -59,43 +73,99 @@ input[type="checkbox"]{
 .list_title{
     margin: 0;
 
-    font-size: clamp(1.2rem, 2vw, 1.8rem);
-    font-weight: bold;
+    flex: 1;
+
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 700;
 
     color: #222;
-
-    text-align: left;
 
     word-break: break-word;
 }
 
-/* 완료 상태 */
-.done{
-    opacity: 0.5;
+/* 날짜 */
+.list_date{
+    margin: 0;
+
+    font-size: 0.9rem;
+
+    color: #777;
+
+    white-space: nowrap;
 }
 
-.done .title{
+/* 완료된 일정 */
+.done{
+    opacity: 0.55;
+
+    background-color: #ececec !important;
+}
+
+/* 완료 텍스트 */
+.done .list_title,
+.done .list_date{
     text-decoration: line-through;
 }
 
 /* 추가 버튼 */
 .add_btn{
-    display: block;
+    position: fixed;
 
-    width: fit-content;
+    right: 35px;
+    bottom: 35px;
 
-    margin: 40px auto 50px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    width: 70px;
+    height: 70px;
 
+    border-radius: 50%;
+
+    background-color: #4b7bec;
+
+    color: white;
+
+    font-size: 2rem;
     text-decoration: none;
 
-    color: #333;
+    box-shadow: 0 6px 20px rgba(75,123,236,0.35);
 
     transition: 0.2s;
 }
 
 /* 버튼 hover */
 .add_btn:hover{
-    transform: scale(1.1);
+    transform: scale(1.08);
+
+    background-color: #3867d6;
+}
+
+/* 모바일 */
+@media (max-width: 600px){
+
+    .list ul{
+        padding: 18px;
+    }
+
+    .list li{
+        flex-direction: row;
+
+        padding: 1rem;
+    }
+
+    .list_date{
+        font-size: 0.8rem;
+    }
+
+    .add_btn{
+        width: 60px;
+        height: 60px;
+
+        font-size: 1.7rem;
+
+        right: 20px;
+        bottom: 20px;
+    }
 }

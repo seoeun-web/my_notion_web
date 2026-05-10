@@ -1,0 +1,35 @@
+{
+  "list": [
+    {
+      "title": "sf",
+      "content": "sdf",
+      "date": "2026-05-27",
+      "completed": false,
+      "id": "DBTfiGFFCPg"
+    },
+    {
+      "title": "ㅁㅁ",
+      "content": "ㅁ",
+      "date": "2026-05-14",
+      "completed": false,
+      "id": "B02zRzFcTuc"
+    }
+  ],
+  "done": [
+    {
+      "title": "123",
+      "content": "123",
+      "date": "2026-05-21",
+      "completed": true,
+      "id": "3fTF2nUpFZ4"
+    },
+    {
+      "title": "qwe",
+      "content": "awe",
+      "date": "2026-05-13",
+      "completed": true,
+      "id": "2B3PxsQXKMI"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

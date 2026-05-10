@@ -32,7 +32,7 @@ export default function Add({list,setList}){
         completed: false
     };
 
-        fetch("http://localhost:3001/list", {
+        fetch("http://localhost:3002/list", {
                 method:"Post",
                 headers:{
                     "Content-Type":"application/json",
