@@ -10,12 +10,22 @@ export default function Schedule() {
     useEffect(() => {
         fetch("http://localhost:3002/list")
             .then(res => res.json())
-            .then(data => setList(data));
+            .then(data => {
+                const sorted = data.sort(
+                    (a, b) => new Date(a.date) - new Date(b.date)
+                );
+                setList(sorted);
+            });
 
         fetch("http://localhost:3002/done")
-                .then(res => res.json())
-                .then(data => setDoneList(data));
-        }, []);
+            .then(res => res.json())
+            .then(data => {
+                const sorted = data.sort(
+                    (a, b) => new Date(a.date) - new Date(b.date)
+                );
+                setDoneList(sorted);
+            });
+    }, []);
 
     // 복구 함수
     const handleChangeCheck = async (item) => {
@@ -39,8 +49,11 @@ export default function Schedule() {
             });
 
             const newItem = await postRes.json();
-
-            setDoneList(prev => [...prev, newItem]);
+            setDoneList(prev =>
+                [...prev, newItem].sort(
+                    (a, b) => new Date(a.date) - new Date(b.date)
+                )
+            );
 
         } catch (err) {
             console.error(err);
@@ -57,7 +70,10 @@ export default function Schedule() {
 
             if (!delRes.ok) return;
 
-            setDoneList(prev => prev.filter(el => el.id !== item.id));
+            setDoneList(prev =>
+                [...prev, newItem].sort(
+                    (a, b) => new Date(a.date) - new Date(b.date)
+                ));
 
             // list에 추가
             const postRes = await fetch(`http://localhost:3002/list`, {
@@ -69,9 +85,11 @@ export default function Schedule() {
             });
 
             const newItem = await postRes.json();
-
-            setList(prev => [...prev, newItem]);
-
+            setList(prev =>
+                [...prev, newItem].sort(
+                    (a, b) => new Date(a.date) - new Date(b.date)
+                )
+            );
         } catch (err) {
             console.error(err);
         }
