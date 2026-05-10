@@ -1,0 +1,91 @@
+/* 전체 입력 영역 */
+.input_box{
+    width: 300px;
+
+    margin: 40px auto;
+
+    padding: 30px;
+
+    border: 2px solid #444;
+    border-radius: 15px;
+
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 제목 입력 */
+.title{
+    width: 280px;
+    height: 35px;
+
+    margin: 0 auto;
+
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    border: 2px solid #ccc;
+    border-radius: 10px;
+
+    resize: none;
+    outline: none;
+}
+
+/* 내용 입력 */
+.content{
+    width: 280px;
+    height: 100px;
+
+    margin: 0 auto;
+
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    border: 2px solid #ccc;
+    border-radius: 10px;
+
+    resize: vertical;
+
+    outline: none;
+
+    line-height: 1.5;
+}
+
+/* 클릭 시 */
+.title:focus,
+.content:focus{
+    border-color: #555;
+}
+
+/* Add 버튼 */
+.input_box button{
+    width: 120px;
+
+    padding: 12px;
+
+    margin-left: 175px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #333;
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+/* hover */
+.input_box button:hover{
+    transform: scale(1.05);
+    opacity: 0.9;
+}

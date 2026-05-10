@@ -1,0 +1,40 @@
+{
+  "list": [
+    {
+      "title": "sdf",
+      "content": "sdf",
+      "date": "2026-05-27",
+      "completed": false,
+      "id": "FNQFPOTjFlI"
+    },
+    {
+      "title": "sdf",
+      "content": "asdf",
+      "date": "2026-05-27",
+      "completed": false,
+      "id": "C2qsiTDlJKM"
+    },
+    {
+      "title": "gwg",
+      "content": "as",
+      "date": "",
+      "completed": false,
+      "id": "wuYxT0c__ig"
+    },
+    {
+      "title": "sdf",
+      "content": "as",
+      "date": "2026-05-28",
+      "completed": false,
+      "id": "LpeZHu_bLjc"
+    },
+    {
+      "title": "qwe",
+      "content": "awe",
+      "date": "2026-05-10",
+      "completed": false,
+      "id": "oBryNiA6vGE"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
