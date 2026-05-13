@@ -1,6 +1,26 @@
 import { useState, useEffect } from "react";
 import "./Schedule.css";
 import { Link } from "react-router-dom";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
+function MyCalendar({list}){
+    const [value,onChange]=useState(new Date());
+
+    return(
+        <div>
+            <Calendar onChange={onChange} 
+                     value={value}
+                     tileContent={({date,view})=>{
+                        if(view==="month"){
+                            const hasSchedule=list.some(item=>
+                                new Date(item.date).toDateString()===date.toDateString());
+                                return hasSchedule ? <div className="dot"></div> : null;
+                        }
+                     }} />
+        </div>
+    );
+}
 
 export default function Schedule() {
     const [list, setList] = useState([]);
@@ -70,10 +90,8 @@ export default function Schedule() {
 
             if (!delRes.ok) return;
 
-            setDoneList(prev =>
-                [...prev, newItem].sort(
-                    (a, b) => new Date(a.date) - new Date(b.date)
-                ));
+            // done state에서 제거
+            setDoneList(prev => prev.filter(el=>el.id!==item.id));
 
             // list에 추가
             const postRes = await fetch(`http://localhost:3002/list`, {
@@ -95,8 +113,23 @@ export default function Schedule() {
         }
     };
 
+    // 삭제하는 함수
+    const handleDelete= async(item)=>{
+        try{
+            const deleteRes=await fetch(`http://localhost:3002/list/${item.id}`, {
+                method: "DELETE",
+            });
+            if(!deleteRes) return;
+            setList(prev=>prev.filter(el=>el.id!==item.id));
+        }catch(error){
+            console.log(error);
+        }
+    };
+
+
     return (
         <div className="list">
+            <MyCalendar list={list} />
             <ul>
                 {list.map((item) => (
                     <li key={item.id} className={item.completed ? "done" : ""}>
@@ -106,8 +139,13 @@ export default function Schedule() {
                             // item 객체 전체를 전달하여 처리
                             onChange={() => handleChangeCheck(item)} 
                         />
-                        <h4 className="list_title">{item.title}</h4>
-                        <p className="list_date">{item.date}</p>
+                        <div className="list_content">
+                            <h2 className="list_title">{item.title}</h2>
+                            <p className="list_date">{item.date}</p>
+                        </div>
+                        <button className="delete_btn" 
+                            onClick={()=>{handleDelete(item)}}>🗑️</button>
+
                     </li>
                 ))}
             </ul>
@@ -118,8 +156,10 @@ export default function Schedule() {
                             checked={true}
                             onChange={()=>handleUncheck(item)}
                         />
-                        <h4 className="list_title">{item.title}</h4>
-                        <p className="list_date">{item.date}</p>
+                        <div className="list_content">
+                            <h2 className="list_title">{item.title}</h2>
+                            <p className="list_date">{item.date}</p>
+                        </div>
                     </li>
                     ))}
             </ul>

@@ -19,7 +19,6 @@ export default function Add({list,setList}){
 
     const Input3=(e)=>{
         setDate(e.target.value);
-        console.log(e.target.value);
     }
 
     const Button=()=>{
