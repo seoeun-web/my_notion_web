@@ -1,28 +1,14 @@
 {
   "list": [
     {
-      "title": "sdf",
-      "content": "sdf",
-      "date": "2026-05-26",
+      "title": "자료구조 수업 듣기",
+      "content": "9시 수업 ㅠ",
+      "date": "2026-05-20",
       "completed": false,
-      "id": "JtdATvSlvis"
-    },
-    {
-      "title": "sdfsafdfsfdfsfsfdfsfsdfsfsfsfdsfdfsf",
-      "content": "sdfsaf\nsfsfdfsfsfdfsf\nsfsffsasdfd\n",
-      "date": "2026-05-14",
-      "completed": false,
-      "id": "HA1y4EZ72ME"
+      "id": "P5jarq_8ar8"
     }
   ],
-  "done": [
-    {
-      "title": "sdf",
-      "content": "sdf",
-      "date": "2026-05-13",
-      "completed": true,
-      "id": "zA_9t7eHJTk"
-    }
-  ],
+  "done": [],
+  "books": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

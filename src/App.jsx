@@ -1,8 +1,9 @@
 import { useState } from "react";
 
 import Header from './Header';
-import Add from './Add';
+import Add from './AddSchedule';
 import Schedule from "./Schedule";
+import Reading from './Reading';
 
 import {
   BrowserRouter,
@@ -35,6 +36,7 @@ function App() {
         <nav>
           <Link to="/">🏠</Link>
           <Link to="/schedule">📆</Link>
+          <Link to="/reading">📚</Link>
         </nav>
 
         <Routes>
@@ -58,7 +60,10 @@ function App() {
               />
             }
           />
-
+          <Route
+            path='/reading'
+            element={<Reading/>}
+            />
         </Routes>
 
       </div>

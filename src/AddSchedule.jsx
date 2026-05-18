@@ -32,7 +32,7 @@ export default function Add({list,setList}){
     };
 
         fetch("http://localhost:3002/list", {
-                method:"Post",
+                method:"POST",
                 headers:{
                     "Content-Type":"application/json",
                 },
@@ -50,7 +50,8 @@ export default function Add({list,setList}){
     return(
         <>
             <div className="input_box">
-                <textarea type="text" value={title} onChange={Input1} placeholder="제목을 입력하세요" className="title"/>
+                <textarea
+                    value={title} onChange={Input1} placeholder="제목을 입력하세요" className="title"/>
                 <textarea type="text" value={content} onChange={Input2} placeholder="내용을 입력하세요" className="content"/>
                 <input type="date" value={date} min={today} onChange={Input3} placeholder="due date를 입력하세요" className="date"/>
                 <button onClick={Button}>Add</button>
